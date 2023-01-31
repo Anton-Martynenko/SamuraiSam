@@ -45,6 +45,7 @@ const Dialogs = (props: DialogItemType) => {
                 <Message message="Yo" />
                 <Message message="Yo" />
                 <Message message="Yo" />
+                <Message message="Yo" />
             </div>
         </div>
     );
