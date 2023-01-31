@@ -8,7 +8,7 @@ const Profileinfo = () => {
             <div>
                 <img src='https://www.freelogodesign.org/Content/img/logo-ex-7.png'/>
             </div>
-            <div>
+            <div className={s.descriptionBlock}>
                 ava + description
             </div>
         </div>
