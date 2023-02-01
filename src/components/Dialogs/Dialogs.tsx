@@ -39,13 +39,18 @@ const Dialogs = (props: DialogItemType) => {
         {id: 6, name: 'Valera'}
     ]
 
+    let dialogsElements = dialogsData.map( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
+
     let messagesData = [
         {id: 1, message: 'Hi'},
         {id: 2, message: 'How is your it-kamasutra?'},
         {id: 3, message: 'Yo'},
         {id: 4, message: 'Yo'},
-        {id: 5, message: 'Yo'}
+        {id: 5, message: 'Yo'},
+        {id: 6, message: 'Yo'}
     ]
+
+    let messagesElements = messagesData.map( message => <Message message={message.message} /> );
 
     return (
         <div className={s.dialogs}>
@@ -63,6 +68,7 @@ const Dialogs = (props: DialogItemType) => {
                 <Message message={messagesData[2].message} />
                 <Message message={messagesData[3].message} />
                 <Message message={messagesData[4].message} />
+                <Message message={messagesData[5].message} />
             </div>
         </div>
     );
