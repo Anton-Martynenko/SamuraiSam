@@ -10,16 +10,14 @@ import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import DialogItem from "./components/Dialogs/DialogItem/DialogItem";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
+import {PostsType} from "./components/Profile/MyPosts/MyPosts";
 
-/*type DialogItemType = {
-    name: string
-    id: number
-}*/
+const App = (props: PostsType) => {
 
-
-
-
-const App = () => {
+    /*let posts = [
+        {id: 1, message: 'Hi, how are you?', likesCount: 2},
+        {id: 2, message: 'it\'s my first post', likesCount: 23}
+    ]*/
 
     return (
         <BrowserRouter>
@@ -28,7 +26,7 @@ const App = () => {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={ () => <Dialogs /> }/>
-                    <Route path='/profile' render={ () => <Profile />}/>
+                    <Route path='/profile' render={ () => <Profile posts={props.posts}/>}/>
                     <Route path='/news' render={ () => <News />}/>
                     <Route path='/music' render={ () => <Music />}/>
                     <Route path='/settings' render={ () => <Settings />}/>
