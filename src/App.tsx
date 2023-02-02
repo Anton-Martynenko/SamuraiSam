@@ -9,10 +9,18 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import DialogItem from "./components/Dialogs/DialogItem/DialogItem";
-import MyPosts from "./components/Profile/MyPosts/MyPosts";
+import MyPosts, {PostType} from "./components/Profile/MyPosts/MyPosts";
 import {PostsType} from "./components/Profile/MyPosts/MyPosts";
+import {DialogItemType} from "./components/Dialogs/Dialogs";
+import {MessageType} from "./components/Dialogs/Dialogs";
 
-const App = (props: PostsType) => {
+export type AllType = {
+    dialogs: Array<DialogItemType>
+    messages: Array<MessageType>
+    posts: Array<PostType>
+}
+
+const App = (props: AllType) => {
 
     /*let posts = [
         {id: 1, message: 'Hi, how are you?', likesCount: 2},
@@ -25,7 +33,7 @@ const App = (props: PostsType) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render={ () => <Dialogs /> }/>
+                    <Route path='/dialogs' render={ () => <Dialogs dialogs={props.dialogs} messages={props.messages}/> }/>
                     <Route path='/profile' render={ () => <Profile posts={props.posts}/>}/>
                     <Route path='/news' render={ () => <News />}/>
                     <Route path='/music' render={ () => <Music />}/>
