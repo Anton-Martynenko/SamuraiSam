@@ -3,16 +3,16 @@ import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
-type DialogItemType = {
+/*type DialogItemType = {
     name: string
     id: number
-}
+}*/
 
-type MessageType = {
+/*type MessageType = {
     message: string
-}
+}*/
 
-const Dialogs = (props: DialogItemType) => {
+const Dialogs = (props: any) => {
 
     let dialogs = [
         {id: 1, name: 'Dimych'},

@@ -9,6 +9,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import DialogItem from "./components/Dialogs/DialogItem/DialogItem";
+import MyPosts from "./components/Profile/MyPosts/MyPosts";
 
 /*type DialogItemType = {
     name: string
@@ -18,16 +19,7 @@ import DialogItem from "./components/Dialogs/DialogItem/DialogItem";
 
 
 
-const App = (props: any) => {
-
-    let dialogs = [
-        {id: 1, name: 'Dimych'},
-        {id: 2, name: 'Andrey'},
-        {id: 3, name: 'Sveta'},
-        {id: 4, name: 'Sasha'},
-        {id: 5, name: 'Viktor'},
-        {id: 6, name: 'Valera'}
-    ]
+const App = () => {
 
     return (
         <BrowserRouter>
@@ -35,7 +27,7 @@ const App = (props: any) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render={ () => <Dialogs id={props.id} name={props.name}/> }/>
+                    <Route path='/dialogs' render={ () => <Dialogs /> }/>
                     <Route path='/profile' render={ () => <Profile />}/>
                     <Route path='/news' render={ () => <News />}/>
                     <Route path='/music' render={ () => <Music />}/>
