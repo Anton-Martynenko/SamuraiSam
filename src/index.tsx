@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import state from './redax/state';
+import dialogs from './redax/state';
+import messages from './redax/state';
+import posts from './redax/state';
 
-
-let posts = [
+/*let posts = [
     {id: 1, message: 'Hi, how are you?', likesCount: 2},
     {id: 2, message: 'it\'s my first post', likesCount: 23}
 ]
@@ -24,9 +27,9 @@ let dialogs = [
         {id: 3, message: 'Yo'},
         {id: 4, message: 'Yo'},
         {id: 5, message: 'Yo'}
-    ]
+    ]*/
 
 ReactDOM.render(
-    <App posts={posts} dialogs={dialogs} messages={messages}/>,
+    <App state={state}/>,
   document.getElementById('root')
 );

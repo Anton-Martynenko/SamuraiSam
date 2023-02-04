@@ -3,6 +3,8 @@ import s from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
 import Profileinfo from "./Profileinfo/Profileinfo";
 import {PostsType} from "./MyPosts/MyPosts";
+import {PostType} from "./MyPosts/MyPosts";
+import {AllType} from "../../App";
 
 /*let posts = [
     {id: 1, message: 'Hi, how are you?', likesCount: 2},
