@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import state from './redax/state';
-import dialogs from './redax/state';
-import messages from './redax/state';
-import posts from './redax/state';
 
 /*let posts = [
     {id: 1, message: 'Hi, how are you?', likesCount: 2},

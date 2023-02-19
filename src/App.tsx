@@ -15,20 +15,19 @@ import {PostsType} from "./components/Profile/MyPosts/MyPosts";
 
 export type AllType = {
      state: {
-
+         profilePage: {
          dialogs: Array<DialogItemType>
          messages: Array<MessageType>
-         posts: Array<PostType>
+     }
+
+         messagePage: {
+             posts: Array<PostType>
+         }
      }
 
 }
 
 const App = (props: AllType) => {
-
-    /*let posts = [
-        {id: 1, message: 'Hi, how are you?', likesCount: 2},
-        {id: 2, message: 'it\'s my first post', likesCount: 23}
-    ]*/
 
     return (
         <BrowserRouter>
@@ -36,8 +35,8 @@ const App = (props: AllType) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render={ () => <Dialogs dialogs={props.state.dialogs} messages={props.state.messages}/> }/>
-                    <Route path='/profile' render={ () => <Profile posts={props.state.posts}/> }/>
+                    <Route path='/dialogs' render={ () => <Dialogs dialogs={props.state.profilePage.dialogs} messages={props.state.profilePage.messages}/> }/>
+                    <Route path='/profile' render={ () => <Profile posts={props.state.messagePage.posts}/> }/>
                     <Route path='/news' render={ () => <News />}/>
                     <Route path='/music' render={ () => <Music />}/>
                     <Route path='/settings' render={ () => <Settings />}/>
