@@ -22,6 +22,7 @@ const MyPosts = (props: PostsType) => {
 
     let postsElements = props.posts.map( p => <Post id={p.id} message={p.message} likesCount={p.likesCount} />);
 
+    let newPostElement = React.createRef();
     let addPost = () => {
         alert('samuraijs.com');
     }
