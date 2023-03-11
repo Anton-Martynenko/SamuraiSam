@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {LegacyRef} from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 import {AllType} from "../../../App";
@@ -13,6 +13,7 @@ export type PostsType = {
     posts: Array<PostType>
 }
 
+
 const MyPosts = (props: PostsType) => {
 
     /*let posts = [
@@ -22,8 +23,9 @@ const MyPosts = (props: PostsType) => {
 
     let postsElements = props.posts.map( p => <Post id={p.id} message={p.message} likesCount={p.likesCount} />);
 
-    let newPostElement = React.createRef();
-    let addPost = () => {
+    let newPostElement = React.createRef<HTMLTextAreaElement>();
+    const addPost = () => {
+        let text = newPostElement.current?.value;
         alert('samuraijs.com');
     }
     return (
@@ -31,7 +33,7 @@ const MyPosts = (props: PostsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
                     <button onClick={ addPost }>Add post</button>
