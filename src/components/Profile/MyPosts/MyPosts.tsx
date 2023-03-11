@@ -25,8 +25,9 @@ const MyPosts = (props: PostsType) => {
 
     let newPostElement = React.createRef<HTMLTextAreaElement>();
     const addPost = () => {
-        let text = newPostElement.current?.value;
-        alert('samuraijs.com');
+        //let text = newPostElement.current?.value;
+        let text = newPostElement.current && newPostElement.current.value;
+        alert(newPostElement.current?.value);
     }
     return (
         <div className={s.postsBlock}>
