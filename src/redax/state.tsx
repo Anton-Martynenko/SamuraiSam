@@ -1,3 +1,5 @@
+import {PostsType, PostType} from "../components/Profile/MyPosts/MyPosts";
+
 let state = {
     profilePage: {
         dialogs: [
@@ -26,6 +28,13 @@ let state = {
     }
 }
 
-
+export const addPost = (postMessage: string) => {
+    let newPost: PostType = {
+        id: 5,
+        message: postMessage,
+        likesCount: 0
+    };
+    state.messagePage.posts.push(newPost);
+}
 
 export default state;

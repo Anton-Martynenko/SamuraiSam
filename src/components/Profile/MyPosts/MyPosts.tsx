@@ -7,10 +7,12 @@ export type PostType = {
     id: number
     message: string
     likesCount: number
+    //addPost: () => void
 }
 
 export type PostsType = {
     posts: Array<PostType>
+    addPost: (postMessage: string) => void
 }
 
 
@@ -26,8 +28,13 @@ const MyPosts = (props: PostsType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>();
     const addPost = () => {
         //let text = newPostElement.current?.value;
-        let text = newPostElement.current && newPostElement.current.value;
-        alert(newPostElement.current?.value);
+
+        //let text = () => {
+        if (newPostElement.current) {
+
+            //alert(newPostElement.current?.value);
+            props.addPost(newPostElement.current.value);
+        }
     }
     return (
         <div className={s.postsBlock}>

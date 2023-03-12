@@ -12,6 +12,7 @@ import {DialogItemType} from "./components/Dialogs/Dialogs";
 import {MessageType} from "./components/Dialogs/Dialogs";
 import {PostType} from "./components/Profile/MyPosts/MyPosts";
 import {PostsType} from "./components/Profile/MyPosts/MyPosts";
+import {addPost} from "./redax/state";
 
 export type AllType = {
      state: {
@@ -24,6 +25,7 @@ export type AllType = {
              posts: Array<PostType>
          }
      }
+     addPost: (postMessage: string) => void
 
 }
 
@@ -36,7 +38,8 @@ const App = (props: AllType) => {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={ () => <Dialogs dialogs={props.state.profilePage.dialogs} messages={props.state.profilePage.messages}/> }/>
-                    <Route path='/profile' render={ () => <Profile posts={props.state.messagePage.posts}/> }/>
+                    <Route path='/profile' render={ () => <Profile posts={props.state.messagePage.posts}
+                                                                   addPost={props.addPost}/> }/>
                     <Route path='/news' render={ () => <News />}/>
                     <Route path='/music' render={ () => <Music />}/>
                     <Route path='/settings' render={ () => <Settings />}/>
