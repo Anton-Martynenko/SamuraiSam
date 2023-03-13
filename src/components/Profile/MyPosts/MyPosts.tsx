@@ -34,7 +34,9 @@ const MyPosts = (props: PostsType) => {
 
             //alert(newPostElement.current?.value);
             props.addPost(newPostElement.current.value);
+            newPostElement.current.value = "";
         }
+
     }
     return (
         <div className={s.postsBlock}>

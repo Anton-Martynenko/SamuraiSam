@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import state from './redax/state';
 import {addPost} from "./redax/state";
+import {rerenderEntireTree} from "./render";
+import state from "./redax/state";
 
 /*let posts = [
     {id: 1, message: 'Hi, how are you?', likesCount: 2},
@@ -26,11 +27,6 @@ let dialogs = [
         {id: 4, message: 'Yo'},
         {id: 5, message: 'Yo'}
     ]*/
-const rerenderEntireTree = () => {
-    ReactDOM.render(
-        <App state={state} addPost={addPost}/>,
-        document.getElementById('root')
-    );
-}
 
-rerenderEntireTree();
+
+rerenderEntireTree(state);

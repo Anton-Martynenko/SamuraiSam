@@ -15,7 +15,7 @@ import {PostsType} from "./components/Profile/MyPosts/MyPosts";
 import {addPost} from "./redax/state";
 
 export type AllType = {
-     state: {
+     //state: {
          profilePage: {
          dialogs: Array<DialogItemType>
          messages: Array<MessageType>
@@ -25,11 +25,15 @@ export type AllType = {
              posts: Array<PostType>
          }
      }
-     addPost: (postMessage: string) => void
 
+
+//}
+export type AppType = {
+    state: AllType
+    addPost: (postMessage: string) => void
 }
 
-const App = (props: AllType) => {
+const App = (props: AppType) => {
 
     return (
         <BrowserRouter>
