@@ -32,3 +32,5 @@ const rerenderEntireTree = () => {
         document.getElementById('root')
     );
 }
+
+rerenderEntireTree();
