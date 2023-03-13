@@ -26,8 +26,9 @@ let dialogs = [
         {id: 4, message: 'Yo'},
         {id: 5, message: 'Yo'}
     ]*/
-
-ReactDOM.render(
-    <App state={state} addPost={addPost}/>,
-  document.getElementById('root')
-);
+const rerenderEntireTree = () => {
+    ReactDOM.render(
+        <App state={state} addPost={addPost}/>,
+        document.getElementById('root')
+    );
+}
