@@ -32,6 +32,7 @@ export type AllType = {
 export type AppType = {
     state: AllType
     addPost: (postMessage: string) => void
+    updateNewPostText: (newText: string) => void
 }
 
 const App = (props: AppType) => {
@@ -44,6 +45,7 @@ const App = (props: AppType) => {
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={ () => <Dialogs dialogs={props.state.profilePage.dialogs} messages={props.state.profilePage.messages}/> }/>
                     <Route path='/profile' render={ () => <Profile posts={props.state.messagePage.posts}
+                                                                   updateNewPostText={props.updateNewPostText}
                                                                    newPostText={props.state.messagePage.newPostText}
                                                                    addPost={props.addPost}/> }/>
                     <Route path='/news' render={ () => <News />}/>

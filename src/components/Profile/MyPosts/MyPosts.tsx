@@ -14,6 +14,7 @@ export type PostsType = {
     posts: Array<PostType>
     addPost: (postMessage: string) => void
     newPostText: string
+    updateNewPostText: (newText: string) => void
 }
 
 
