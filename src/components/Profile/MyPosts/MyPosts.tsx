@@ -38,12 +38,16 @@ const MyPosts = (props: PostsType) => {
         }
 
     }
+
+    let onPostChange = () => {
+
+    }
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={'it-kamasutra'}/>
                 </div>
                 <div>
                     <button onClick={ addPost }>Add post</button>
