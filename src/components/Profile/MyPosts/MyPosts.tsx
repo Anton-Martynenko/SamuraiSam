@@ -13,6 +13,7 @@ export type PostType = {
 export type PostsType = {
     posts: Array<PostType>
     addPost: (postMessage: string) => void
+    newPostText: string
 }
 
 
@@ -47,7 +48,7 @@ const MyPosts = (props: PostsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={'it-kamasutra'}/>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={ addPost }>Add post</button>

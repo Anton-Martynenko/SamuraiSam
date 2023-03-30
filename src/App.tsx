@@ -23,6 +23,7 @@ export type AllType = {
 
          messagePage: {
              posts: Array<PostType>
+             newPostText: string
          }
      }
 
@@ -43,6 +44,7 @@ const App = (props: AppType) => {
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={ () => <Dialogs dialogs={props.state.profilePage.dialogs} messages={props.state.profilePage.messages}/> }/>
                     <Route path='/profile' render={ () => <Profile posts={props.state.messagePage.posts}
+                                                                   newPostText={props.state.messagePage.newPostText}
                                                                    addPost={props.addPost}/> }/>
                     <Route path='/news' render={ () => <News />}/>
                     <Route path='/music' render={ () => <Music />}/>

@@ -19,10 +19,12 @@ const Profile = (props: PostsType) => {
     ]*/
 
     return (
-    <div className={s.content}>
-        <Profileinfo />
-        <MyPosts posts={props.posts} addPost={props.addPost}/>
-    </div>
+        <div className={s.content}>
+            <Profileinfo/>
+            <MyPosts posts={props.posts}
+                     newPostText={props.newPostText}
+                     addPost={props.addPost}/>
+        </div>
     );
 }
 
