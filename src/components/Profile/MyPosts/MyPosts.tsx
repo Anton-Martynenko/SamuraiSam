@@ -36,13 +36,16 @@ const MyPosts = (props: PostsType) => {
 
             //alert(newPostElement.current?.value);
             props.addPost(newPostElement.current.value);
-            newPostElement.current.value = "";
+
         }
 
     }
 
     let onPostChange = () => {
-
+        if (newPostElement.current) {
+            let text = newPostElement.current.value;
+            props.updateNewPostText(text);
+        }
     }
     return (
         <div className={s.postsBlock}>

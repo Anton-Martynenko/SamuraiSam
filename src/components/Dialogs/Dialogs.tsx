@@ -17,6 +17,8 @@ export type MessageType = {
 type DialogsType = {
     dialogs: Array<DialogItemType>
     messages: Array<MessageType>
+    newDialogText: string
+    updateNewDialogText: (newDialog: string) => void
 }
 
 

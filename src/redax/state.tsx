@@ -19,6 +19,7 @@ let state = {
             {id: 4, message: 'Yo'},
             {id: 5, message: 'Yo'}
         ],
+        newDialogText: 'Hello'
     },
 
     messagePage: {
@@ -30,18 +31,24 @@ let state = {
     }
 }
 
-export const addPost = (postMessage: string) => {
+export const addPost = () => {
     let newPost: PostType = {
         id: 5,
-        message: postMessage,
+        message: state.messagePage.newPostText,
         likesCount: 0
     };
     state.messagePage.posts.push(newPost);
+    state.messagePage.newPostText = '';
     rerenderEntireTree(state);
 }
 
 export const updateNewPostText = (newText: string) => {
     state.messagePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export const updateNewDialogText = (newDialog: string) => {
+    state.profilePage.newDialogText = newDialog;
     rerenderEntireTree(state);
 }
 
