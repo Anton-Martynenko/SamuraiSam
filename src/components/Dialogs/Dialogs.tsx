@@ -61,7 +61,7 @@ const Dialogs = (props: DialogsType) => {
                 { messagesElements }
             </div>
             <div>
-                <textarea ref={newDialogElement}></textarea>
+                <textarea ref={newDialogElement} value={props.newDialogText}/>
             </div>
             <div>
                 <button onClick={ addNewDialog }>Add Dialog</button>
