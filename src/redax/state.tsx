@@ -1,5 +1,6 @@
 import {PostsType, PostType} from "../components/Profile/MyPosts/MyPosts";
 import {rerenderEntireTree} from "../render";
+import {MessageType} from "../components/Dialogs/Dialogs";
 
 let state = {
     profilePage: {
@@ -39,6 +40,16 @@ export const addPost = () => {
     };
     state.messagePage.posts.push(newPost);
     state.messagePage.newPostText = '';
+    rerenderEntireTree(state);
+}
+
+export const addNewDialog = () => {
+    let newDialog: MessageType = {
+        id: 6,
+        message: state.profilePage.newDialogText
+    };
+    state.profilePage.messages.push(newDialog);
+    state.profilePage.newDialogText = '';
     rerenderEntireTree(state);
 }
 

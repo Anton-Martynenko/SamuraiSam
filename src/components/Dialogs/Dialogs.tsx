@@ -19,6 +19,7 @@ type DialogsType = {
     messages: Array<MessageType>
     newDialogText: string
     updateNewDialogText: (newDialog: string) => void
+    addNewDialog: (dialogMessage: string) => void
 }
 
 
@@ -43,28 +44,39 @@ const Dialogs = (props: DialogsType) => {
         {id: 5, message: 'Yo'}
     ]*/
 
-    let dialogsElements = props.dialogs.map( d => <DialogItem name={d.name} id={d.id} /> );
-    let messagesElements = props.messages.map( m => <Message message={m.message} /> );
+    let dialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let messagesElements = props.messages.map(m => <Message message={m.message}/>);
     let newDialogElement = React.createRef<HTMLTextAreaElement>();
     const addNewDialog = () => {
-        //let text = newPostElement.current?.value;
-        let text = newDialogElement.current && newDialogElement.current.value;
-        alert(newDialogElement.current?.value);
+        if (newDialogElement.current) {
+            let text = newDialogElement.current.value;
+            //let text = newDialogElement.current && newDialogElement.current.value;
+            //alert(newDialogElement.current?.value);
+            props.updateNewDialogText(text);
+        }
+    }
+    let onDialogChange = () => {
+        if (newDialogElement.current) {
+            let text = newDialogElement.current.value;
+            props.updateNewDialogText(text);
+        }
     }
 
-        return (
+    return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                { dialogsElements }
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                { messagesElements }
+                {messagesElements}
             </div>
             <div>
-                <textarea ref={newDialogElement} value={props.newDialogText}/>
+                <textarea ref={newDialogElement}
+                          value={props.newDialogText}
+                          onChange={onDialogChange}/>
             </div>
             <div>
-                <button onClick={ addNewDialog }>Add Dialog</button>
+                <button onClick={addNewDialog}>Add Dialog</button>
             </div>
         </div>
     );

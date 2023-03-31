@@ -35,6 +35,7 @@ export type AppType = {
     addPost: (postMessage: string) => void
     updateNewPostText: (newText: string) => void
     updateNewDialogText: (newDialog: string) => void
+    addNewDialog: (dialogMessage: string) => void
 }
 
 const App = (props: AppType) => {
@@ -48,7 +49,8 @@ const App = (props: AppType) => {
                     <Route path='/dialogs' render={() => <Dialogs dialogs={props.state.profilePage.dialogs}
                                                                   messages={props.state.profilePage.messages}
                                                                   newDialogText={props.state.profilePage.newDialogText}
-                                                                  updateNewDialogText={props.updateNewDialogText}/>}/>
+                                                                  updateNewDialogText={props.updateNewDialogText}
+                                                                  addNewDialog={props.addNewDialog}/>}/>
                     <Route path='/profile' render={() => <Profile posts={props.state.messagePage.posts}
                                                                   updateNewPostText={props.updateNewPostText}
                                                                   newPostText={props.state.messagePage.newPostText}

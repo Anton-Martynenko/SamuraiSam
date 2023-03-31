@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App, {AllType} from './App';
-import {addPost, updateNewDialogText, updateNewPostText} from "./redax/state";
+import {addNewDialog, addPost, updateNewDialogText, updateNewPostText} from "./redax/state";
 
 
 export const rerenderEntireTree = (state: AllType) => {
@@ -10,6 +10,7 @@ export const rerenderEntireTree = (state: AllType) => {
         <App state={state}
              addPost={addPost}
              updateNewPostText={updateNewPostText}
+             addNewDialog={addNewDialog}
              updateNewDialogText={updateNewDialogText}/>,
         document.getElementById('root')
     );
