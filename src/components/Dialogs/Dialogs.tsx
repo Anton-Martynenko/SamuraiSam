@@ -49,10 +49,10 @@ const Dialogs = (props: DialogsType) => {
     let newDialogElement = React.createRef<HTMLTextAreaElement>();
     const addNewDialog = () => {
         if (newDialogElement.current) {
-            let text = newDialogElement.current.value;
+            //let text = newDialogElement.current.value;
             //let text = newDialogElement.current && newDialogElement.current.value;
             //alert(newDialogElement.current?.value);
-            props.updateNewDialogText(text);
+            props.addNewDialog(newDialogElement.current.value);
         }
     }
     let onDialogChange = () => {
