@@ -67,4 +67,8 @@ export const updateNewDialogText = (newDialog: string) => {
     rerenderEntireTree(state);
 }
 
+export const subscribe = (observer: any) => {
+    rerenderEntireTree = observer;
+}
+
 export default state;

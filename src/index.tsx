@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App, {AllType} from './App';
-import {addNewDialog, addPost, updateNewDialogText, updateNewPostText} from "./redax/state";
+import {addNewDialog, addPost, subscribe, updateNewDialogText, updateNewPostText} from "./redax/state";
 import state from "./redax/state";
 
 export const rerenderEntireTree = (state: AllType) => {
@@ -18,3 +18,5 @@ export const rerenderEntireTree = (state: AllType) => {
 
 
 rerenderEntireTree(state);
+
+subscribe(rerenderEntireTree);
