@@ -1,6 +1,10 @@
 import {PostsType, PostType} from "../components/Profile/MyPosts/MyPosts";
-import {rerenderEntireTree} from "../render";
 import {MessageType} from "../components/Dialogs/Dialogs";
+import {AllType} from "../App";
+
+let rerenderEntireTree = (state: AllType) => {
+    console.log("State changed");
+}
 
 let state = {
     profilePage: {
