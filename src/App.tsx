@@ -12,7 +12,7 @@ import {DialogItemType} from "./components/Dialogs/Dialogs";
 import {MessageType} from "./components/Dialogs/Dialogs";
 import {PostType} from "./components/Profile/MyPosts/MyPosts";
 import {PostsType} from "./components/Profile/MyPosts/MyPosts";
-import {addPost} from "./redax/state";
+//import {addPost} from "./redax/state";
 
 export type AllType = {
     //state: {

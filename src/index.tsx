@@ -2,21 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App, {AllType} from './App';
-import {addNewDialog, addPost, subscribe, updateNewDialogText, updateNewPostText} from "./redax/state";
+import store from "./redax/state";
 import state from "./redax/state";
 
 export const rerenderEntireTree = (state: AllType) => {
     ReactDOM.render(
-        <App state={state}
-             addPost={addPost}
-             updateNewPostText={updateNewPostText}
-             addNewDialog={addNewDialog}
-             updateNewDialogText={updateNewDialogText}/>,
+        <App state={store.getState()}
+             addPost={store.addPost}
+             updateNewPostText={store.updateNewPostText}
+             addNewDialog={store.addNewDialog}
+             updateNewDialogText={store.updateNewDialogText}/>,
         document.getElementById('root')
     );
 }
 
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
