@@ -18,6 +18,9 @@ export type PostsType = {
     dispatch: (action: any) => void
 }
 
+let addPostActionCreator = () => {
+    return {type: 'ADD-POST'}
+}
 
 const MyPosts = (props: PostsType) => {
 
@@ -31,7 +34,7 @@ const MyPosts = (props: PostsType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>();
     let addPost = () => {
         //let text = newPostElement.current?.value;
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostActionCreator());
         //let text = () => {
         // if (newPostElement.current) {
 
