@@ -7,11 +7,11 @@ import state from "./redax/state";
 
 export const rerenderEntireTree = (state: AllType) => {
     ReactDOM.render(
-        <App state={store.getState()}
-             addPost={store.addPost}
-             updateNewPostText={store.updateNewPostText}
-             addNewDialog={store.addNewDialog}
-             updateNewDialogText={store.updateNewDialogText}/>,
+        <App state={state}
+             addPost={store.addPost.bind(store)}
+             updateNewPostText={store.updateNewPostText.bind(store)}
+             addNewDialog={store.addNewDialog.bind(store)}
+             updateNewDialogText={store.updateNewDialogText.bind(store)}/>,
         document.getElementById('root')
     );
 }

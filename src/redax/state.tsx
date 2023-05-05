@@ -2,9 +2,9 @@ import {PostsType, PostType} from "../components/Profile/MyPosts/MyPosts";
 import {MessageType} from "../components/Dialogs/Dialogs";
 import {AllType} from "../App";
 
-let rerenderEntireTree = (state: AllType) => {
-    console.log("State changed");
-}
+// let rerenderEntireTree = (state: AllType) => {
+//     console.log("State changed");
+// }
 
 let store = {
     _state: {
@@ -36,6 +36,9 @@ let store = {
             newPostText: "it-kamasutra"
         }
     },
+    _callSubscriber (state: AllType) {
+        console.log("State changed");
+    },
     getState () {
         return this._state;
     },
@@ -47,7 +50,7 @@ let store = {
         };
         this._state.messagePage.posts.push(newPost);
         this._state.messagePage.newPostText = '';
-        rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
     addNewDialog () {
         let newDialog: MessageType = {
@@ -56,19 +59,19 @@ let store = {
         };
         this._state.profilePage.messages.push(newDialog);
         this._state.profilePage.newDialogText = '';
-        rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
     updateNewPostText (newText: string) {
         this._state.messagePage.newPostText = newText;
-        rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
     updateNewDialogText (newDialog: string) {
         this._state.profilePage.newDialogText = newDialog;
-        rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
 
     subscribe (observer: any) {
-        rerenderEntireTree = observer;
+        this._callSubscriber = observer;
     }
 }
 // let state = {
