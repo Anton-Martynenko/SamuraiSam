@@ -42,37 +42,62 @@ let store = {
     getState () {
         return this._state;
     },
-    addPost () {
-        let newPost: PostType = {
-            id: 5,
-            message: this._state.messagePage.newPostText,
-            likesCount: 0
-        };
-        this._state.messagePage.posts.push(newPost);
-        this._state.messagePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    addNewDialog () {
-        let newDialog: MessageType = {
-            id: 6,
-            message: this._state.profilePage.newDialogText
-        };
-        this._state.profilePage.messages.push(newDialog);
-        this._state.profilePage.newDialogText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText (newText: string) {
-        this._state.messagePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    updateNewDialogText (newDialog: string) {
-        this._state.profilePage.newDialogText = newDialog;
-        this._callSubscriber(this._state);
-    },
-
     subscribe (observer: any) {
         this._callSubscriber = observer;
+    },
+    dispatch (action: any) {
+        if (action.type === 'ADD-POST') {
+            let newPost: PostType = {
+                id: 5,
+                message: this._state.messagePage.newPostText,
+                likesCount: 0
+            };
+            this._state.messagePage.posts.push(newPost);
+            this._state.messagePage.newPostText = '';
+            this._callSubscriber(this._state);
+        }  else if (action.type === 'ADD-NEW-DIALOG') {
+            let newDialog: MessageType = {
+                id: 6,
+                message: this._state.profilePage.newDialogText
+            };
+            this._state.profilePage.messages.push(newDialog);
+            this._state.profilePage.newDialogText = '';
+            this._callSubscriber(this._state);
+        }  else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.messagePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }  else if (action.type === 'UPDATE-NEW-DIALOG-TEXT') {
+            this._state.profilePage.newDialogText = action.newDialog;
+            this._callSubscriber(this._state);
+        }
     }
+    // addPost () {
+    //     let newPost: PostType = {
+    //         id: 5,
+    //         message: this._state.messagePage.newPostText,
+    //         likesCount: 0
+    //     };
+    //     this._state.messagePage.posts.push(newPost);
+    //     this._state.messagePage.newPostText = '';
+    //     this._callSubscriber(this._state);
+    // },
+    // addNewDialog () {
+    //     let newDialog: MessageType = {
+    //         id: 6,
+    //         message: this._state.profilePage.newDialogText
+    //     };
+    //     this._state.profilePage.messages.push(newDialog);
+    //     this._state.profilePage.newDialogText = '';
+    //     this._callSubscriber(this._state);
+    // },
+    // updateNewPostText (newText: string) {
+    //     this._state.messagePage.newPostText = newText;
+    //     this._callSubscriber(this._state);
+    // },
+    // updateNewDialogText (newDialog: string) {
+    //     this._state.profilePage.newDialogText = newDialog;
+    //     this._callSubscriber(this._state);
+    // },
 }
 // let state = {
 //     profilePage: {
