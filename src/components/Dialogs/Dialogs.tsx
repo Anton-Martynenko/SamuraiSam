@@ -18,8 +18,9 @@ type DialogsType = {
     dialogs: Array<DialogItemType>
     messages: Array<MessageType>
     newDialogText: string
-    updateNewDialogText: (newDialog: string) => void
-    addNewDialog: (dialogMessage: string) => void
+    updateNewDialogText?: (newDialog: string) => void
+    addNewDialog?: (dialogMessage: string) => void
+    dispatch: (action: any) => void
 }
 
 
@@ -52,13 +53,16 @@ const Dialogs = (props: DialogsType) => {
             //let text = newDialogElement.current.value;
             //let text = newDialogElement.current && newDialogElement.current.value;
             //alert(newDialogElement.current?.value);
-            props.addNewDialog(newDialogElement.current.value);
+
+            // props.addNewDialog(newDialogElement.current.value);
+            props.dispatch({type: 'ADD-NEW-DIALOG'});
         }
     }
     let onDialogChange = () => {
         if (newDialogElement.current) {
             let text = newDialogElement.current.value;
-            props.updateNewDialogText(text);
+            // props.updateNewDialogText(text);
+            props.dispatch({type: 'UPDATE-NEW-DIALOG-TEXT', newDialog: text})
         }
     }
 

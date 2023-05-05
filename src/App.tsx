@@ -32,10 +32,11 @@ export type AllType = {
 //}
 export type AppType = {
     state: AllType
-    addPost: (postMessage: string) => void
-    updateNewPostText: (newText: string) => void
-    updateNewDialogText: (newDialog: string) => void
-    addNewDialog: (dialogMessage: string) => void
+    addPost?: (postMessage: string) => void
+    updateNewPostText?: (newText: string) => void
+    updateNewDialogText?: (newDialog: string) => void
+    addNewDialog?: (dialogMessage: string) => void
+    dispatch: (action: any) => void
 }
 
 const App = (props: AppType) => {
@@ -49,12 +50,16 @@ const App = (props: AppType) => {
                     <Route path='/dialogs' render={() => <Dialogs dialogs={props.state.profilePage.dialogs}
                                                                   messages={props.state.profilePage.messages}
                                                                   newDialogText={props.state.profilePage.newDialogText}
-                                                                  updateNewDialogText={props.updateNewDialogText}
-                                                                  addNewDialog={props.addNewDialog}/>}/>
+                                                                  dispatch={props.dispatch}
+                                                                  // updateNewDialogText={props.updateNewDialogText}
+                                                                  // addNewDialog={props.addNewDialog}
+                    />}/>
                     <Route path='/profile' render={() => <Profile posts={props.state.messagePage.posts}
-                                                                  updateNewPostText={props.updateNewPostText}
                                                                   newPostText={props.state.messagePage.newPostText}
-                                                                  addPost={props.addPost}/>}/>
+                                                                  dispatch={props.dispatch}
+                                                                  // addPost={props.addPost}
+                                                                  // updateNewPostText={props.updateNewPostText}
+                    />}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>

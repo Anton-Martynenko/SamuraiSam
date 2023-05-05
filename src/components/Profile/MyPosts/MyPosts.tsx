@@ -12,9 +12,10 @@ export type PostType = {
 
 export type PostsType = {
     posts: Array<PostType>
-    addPost: (postMessage: string) => void
+    addPost?: (postMessage: string) => void
     newPostText: string
-    updateNewPostText: (newText: string) => void
+    updateNewPostText?: (newText: string) => void
+    dispatch: (action: any) => void
 }
 
 
@@ -28,23 +29,24 @@ const MyPosts = (props: PostsType) => {
     let postsElements = props.posts.map( p => <Post id={p.id} message={p.message} likesCount={p.likesCount} />);
 
     let newPostElement = React.createRef<HTMLTextAreaElement>();
-    const addPost = () => {
+    let addPost = () => {
         //let text = newPostElement.current?.value;
-
+        props.dispatch({type: 'ADD-POST'});
         //let text = () => {
-        if (newPostElement.current) {
+        // if (newPostElement.current) {
 
             //alert(newPostElement.current?.value);
-            props.addPost(newPostElement.current.value);
+            // props.addPost(newPostElement.current.value);
 
-        }
+        // }
 
     }
 
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value;
-            props.updateNewPostText(text);
+            // props.updateNewPostText(text);
+            props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
         }
     }
     return (
