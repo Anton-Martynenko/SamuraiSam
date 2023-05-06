@@ -2,6 +2,7 @@ import React, {LegacyRef} from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 import {AllType} from "../../../App";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redax/state";
 
 export type PostType = {
     id: number
@@ -18,13 +19,7 @@ export type PostsType = {
     dispatch: (action: any) => void
 }
 
-let addPostActionCreator = () => {
-    return {type: 'ADD-POST'}
-}
 
-let updateNewPostTextActionCreator = (text: string) => {
-    return {type: 'UPDATE-NEW-POST-TEXT', newText: text}
-}
 
 const MyPosts = (props: PostsType) => {
 
@@ -53,7 +48,8 @@ const MyPosts = (props: PostsType) => {
         if (newPostElement.current) {
             let text = newPostElement.current.value;
             // props.updateNewPostText(text);
-            props.dispatch(updateNewPostTextActionCreator(text));
+            let action = updateNewPostTextActionCreator(text);
+            props.dispatch(action);
         }
     }
     return (
