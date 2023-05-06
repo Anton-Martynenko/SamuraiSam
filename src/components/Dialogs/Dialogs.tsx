@@ -23,6 +23,9 @@ type DialogsType = {
     dispatch: (action: any) => void
 }
 
+let addNewDialogActionCreator = () => ({type: 'ADD-NEW-DIALOG'});
+
+
 
 const Dialogs = (props: DialogsType) => {
 
@@ -55,7 +58,7 @@ const Dialogs = (props: DialogsType) => {
             //alert(newDialogElement.current?.value);
 
             // props.addNewDialog(newDialogElement.current.value);
-            props.dispatch({type: 'ADD-NEW-DIALOG'});
+            props.dispatch(addNewDialogActionCreator());
         }
     }
     let onDialogChange = () => {
