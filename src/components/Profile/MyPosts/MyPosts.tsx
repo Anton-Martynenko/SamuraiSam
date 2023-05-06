@@ -22,6 +22,10 @@ let addPostActionCreator = () => {
     return {type: 'ADD-POST'}
 }
 
+let updateNewPostTextActionCreator = (text: string) => {
+    return {type: 'UPDATE-NEW-POST-TEXT', newText: text}
+}
+
 const MyPosts = (props: PostsType) => {
 
     /*let posts = [
@@ -49,7 +53,7 @@ const MyPosts = (props: PostsType) => {
         if (newPostElement.current) {
             let text = newPostElement.current.value;
             // props.updateNewPostText(text);
-            props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
+            props.dispatch(updateNewPostTextActionCreator(text));
         }
     }
     return (
