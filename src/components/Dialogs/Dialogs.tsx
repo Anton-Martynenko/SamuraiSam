@@ -3,6 +3,7 @@ import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {AllType} from "../../App";
+import {addNewDialogActionCreator, updateNewDialogTextActionCreator} from "../../redax/state";
 
 export type DialogItemType = {
     name: string
@@ -22,10 +23,6 @@ type DialogsType = {
     addNewDialog?: (dialogMessage: string) => void
     dispatch: (action: any) => void
 }
-
-let addNewDialogActionCreator = () => ({type: 'ADD-NEW-DIALOG'});
-
-
 
 const Dialogs = (props: DialogsType) => {
 
@@ -65,7 +62,7 @@ const Dialogs = (props: DialogsType) => {
         if (newDialogElement.current) {
             let text = newDialogElement.current.value;
             // props.updateNewDialogText(text);
-            props.dispatch({type: 'UPDATE-NEW-DIALOG-TEXT', newDialog: text})
+            props.dispatch(updateNewDialogTextActionCreator(text))
         }
     }
 

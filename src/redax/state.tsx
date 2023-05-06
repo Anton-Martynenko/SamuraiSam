@@ -10,6 +10,10 @@ const ADD_POST = 'ADD-POST';
 
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
+const ADD_NEW_DIALOG = 'ADD-NEW-DIALOG';
+
+const UPDATE_NEW_DIALOG_TEXT = 'UPDATE-NEW-DIALOG-TEXT';
+
 let store = {
     _state: {
         profilePage: {
@@ -171,6 +175,11 @@ let store = {
 export const addPostActionCreator = () => ({type: ADD_POST});
 
 export const updateNewPostTextActionCreator = (text: string) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: text})
+    ({type: UPDATE_NEW_POST_TEXT, newText: text});
+
+export const addNewDialogActionCreator = () => ({type: ADD_NEW_DIALOG});
+
+export const updateNewDialogTextActionCreator = (text: string) =>
+    ({type: UPDATE_NEW_DIALOG_TEXT, newDialog: text});
 
 export default store;
