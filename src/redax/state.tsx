@@ -63,7 +63,7 @@ let store = {
             this._state.messagePage.posts.push(newPost);
             this._state.messagePage.newPostText = '';
             this._callSubscriber(this._state);
-        }  else if (action.type === 'ADD-NEW-DIALOG') {
+        }  else if (action.type === ADD_NEW_DIALOG) {
             let newDialog: MessageType = {
                 id: 6,
                 message: this._state.profilePage.newDialogText
@@ -74,7 +74,7 @@ let store = {
         }  else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.messagePage.newPostText = action.newText;
             this._callSubscriber(this._state);
-        }  else if (action.type === 'UPDATE-NEW-DIALOG-TEXT') {
+        }  else if (action.type === UPDATE_NEW_DIALOG_TEXT) {
             this._state.profilePage.newDialogText = action.newDialog;
             this._callSubscriber(this._state);
         }
