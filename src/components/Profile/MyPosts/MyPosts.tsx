@@ -2,7 +2,7 @@ import React, {LegacyRef} from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 import {AllType} from "../../../App";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redax/state";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redax/message-reducer";
 
 export type PostType = {
     id: number

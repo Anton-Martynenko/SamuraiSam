@@ -5,19 +5,28 @@ const ADD_POST = 'ADD-POST';
 
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const messageReducer = (state: AllType, action: any) => {
-    if (action.type === ADD_POST) {
-        let newPost: PostType = {
-            id: 5,
-            message: state.messagePage.newPostText,
-            likesCount: 0
-        };
-        state.messagePage.posts.push(newPost);
-        state.messagePage.newPostText = '';
-    }  else if (action.type === UPDATE_NEW_POST_TEXT) {
-        state.messagePage.newPostText = action.newText;
+const messageReducer = (state: any, action: any) => {
+    switch (action.type) {
+        case ADD_POST:
+            let newPost: PostType = {
+                id: 5,
+                message: state.newPostText,
+                likesCount: 0
+            };
+            state.posts.push(newPost);
+            state.newPostText = '';
+            return state;
+        case UPDATE_NEW_POST_TEXT:
+            state.newPostText = action.newText;
+            return state;
+        default:
+            return state;
     }
-    return state;
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST});
+
+export const updateNewPostTextActionCreator = (text: string) =>
+    ({type: UPDATE_NEW_POST_TEXT, newText: text});
 
 export default messageReducer;

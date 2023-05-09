@@ -6,18 +6,23 @@ const ADD_NEW_DIALOG = 'ADD-NEW-DIALOG';
 
 const UPDATE_NEW_DIALOG_TEXT = 'UPDATE-NEW-DIALOG-TEXT';
 
-const profileReducer = (state: AllType, action: any) => {
+const profileReducer = (state: any, action: any) => {
     if (action.type === ADD_NEW_DIALOG) {
         let newDialog: MessageType = {
             id: 6,
-            message: state.profilePage.newDialogText
+            message: state.newDialogText
         };
-        state.profilePage.messages.push(newDialog);
-        state.profilePage.newDialogText = '';
+        state.messages.push(newDialog);
+        state.newDialogText = '';
     }  else if (action.type === UPDATE_NEW_DIALOG_TEXT) {
-        state.profilePage.newDialogText = action.newDialog;
+        state.newDialogText = action.newDialog;
     }
     return state;
 }
+
+export const addNewDialogActionCreator = () => ({type: ADD_NEW_DIALOG});
+
+export const updateNewDialogTextActionCreator = (text: string) =>
+    ({type: UPDATE_NEW_DIALOG_TEXT, newDialog: text});
 
 export default profileReducer;

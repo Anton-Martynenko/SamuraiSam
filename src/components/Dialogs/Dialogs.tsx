@@ -3,7 +3,7 @@ import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {AllType} from "../../App";
-import {addNewDialogActionCreator, updateNewDialogTextActionCreator} from "../../redax/state";
+import {addNewDialogActionCreator, updateNewDialogTextActionCreator} from "../../redax/profile-reducer";
 
 export type DialogItemType = {
     name: string

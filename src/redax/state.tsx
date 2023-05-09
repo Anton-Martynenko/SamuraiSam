@@ -1,18 +1,13 @@
 import {PostsType, PostType} from "../components/Profile/MyPosts/MyPosts";
 import {MessageType} from "../components/Dialogs/Dialogs";
 import {AllType} from "../App";
+import messageReducer from "./message-reducer";
+import profileReducer from "./profile-reducer";
 
 // let rerenderEntireTree = (state: AllType) => {
 //     console.log("State changed");
 // }
 
-const ADD_POST = 'ADD-POST';
-
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-
-const ADD_NEW_DIALOG = 'ADD-NEW-DIALOG';
-
-const UPDATE_NEW_DIALOG_TEXT = 'UPDATE-NEW-DIALOG-TEXT';
 
 let store = {
     _state: {
@@ -44,40 +39,22 @@ let store = {
             newPostText: "it-kamasutra"
         }
     },
-    _callSubscriber (state: AllType) {
+    _callSubscriber(state: AllType) {
         console.log("State changed");
     },
-    getState () {
+    getState() {
         return this._state;
     },
-    subscribe (observer: any) {
+    subscribe(observer: any) {
         this._callSubscriber = observer;
     },
-    dispatch (action: any) {
-        if (action.type === ADD_POST) {
-            let newPost: PostType = {
-                id: 5,
-                message: this._state.messagePage.newPostText,
-                likesCount: 0
-            };
-            this._state.messagePage.posts.push(newPost);
-            this._state.messagePage.newPostText = '';
-            this._callSubscriber(this._state);
-        }  else if (action.type === ADD_NEW_DIALOG) {
-            let newDialog: MessageType = {
-                id: 6,
-                message: this._state.profilePage.newDialogText
-            };
-            this._state.profilePage.messages.push(newDialog);
-            this._state.profilePage.newDialogText = '';
-            this._callSubscriber(this._state);
-        }  else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.messagePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        }  else if (action.type === UPDATE_NEW_DIALOG_TEXT) {
-            this._state.profilePage.newDialogText = action.newDialog;
-            this._callSubscriber(this._state);
-        }
+    dispatch(action: any) {
+
+        this._state.messagePage = messageReducer(this._state.messagePage, action);
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+
+        this._callSubscriber(this._state);
+
     }
     // addPost () {
     //     let newPost: PostType = {
@@ -171,15 +148,5 @@ let store = {
 // export const subscribe = (observer: any) => {
 //     rerenderEntireTree = observer;
 // }
-
-export const addPostActionCreator = () => ({type: ADD_POST});
-
-export const updateNewPostTextActionCreator = (text: string) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: text});
-
-export const addNewDialogActionCreator = () => ({type: ADD_NEW_DIALOG});
-
-export const updateNewDialogTextActionCreator = (text: string) =>
-    ({type: UPDATE_NEW_DIALOG_TEXT, newDialog: text});
 
 export default store;
