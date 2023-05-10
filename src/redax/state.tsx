@@ -7,7 +7,38 @@ import profileReducer from "./profile-reducer";
 // let rerenderEntireTree = (state: AllType) => {
 //     console.log("State changed");
 // }
-
+type DType = {
+    id: number
+    name: string
+}
+type MType = {
+    id: number
+    message: string
+}
+type NDTType = {
+    newDialogText: string
+}
+type PType = {
+    id: number
+    message: string
+    likesCount: number
+}
+type NPTType = {
+    newPostText: string
+}
+export type PPType = {
+    dialogs: Array<DType>
+    messages: Array<MType>
+    newDialogText: string
+}
+export type MPType = {
+    posts: Array<PType>
+    newPostText: string
+}
+export type StateType = {
+    profilePage: PPType
+    messagePage: MPType
+}
 
 let store = {
     _state: {

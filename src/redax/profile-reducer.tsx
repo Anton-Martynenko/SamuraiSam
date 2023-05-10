@@ -1,12 +1,13 @@
 import {AllType} from "../App";
 import {PostType} from "../components/Profile/MyPosts/MyPosts";
 import {MessageType} from "../components/Dialogs/Dialogs";
+import {PPType} from "./state";
 
 const ADD_NEW_DIALOG = 'ADD-NEW-DIALOG';
 
 const UPDATE_NEW_DIALOG_TEXT = 'UPDATE-NEW-DIALOG-TEXT';
 
-const profileReducer = (state: any, action: any) => {
+const profileReducer = (state: PPType, action: any) => {
     switch (action.type) {
         case ADD_NEW_DIALOG:
             let newDialog: MessageType = {

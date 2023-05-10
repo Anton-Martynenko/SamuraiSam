@@ -1,11 +1,12 @@
 import {AllType} from "../App";
 import {PostType} from "../components/Profile/MyPosts/MyPosts";
+import {MPType, StateType} from "./state";
 
 const ADD_POST = 'ADD-POST';
 
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const messageReducer = (state: any, action: any) => {
+const messageReducer = (state: MPType, action: any) => {
     switch (action.type) {
         case ADD_POST:
             let newPost: PostType = {
