@@ -12,6 +12,9 @@ import {DialogItemType} from "./components/Dialogs/Dialogs";
 import {MessageType} from "./components/Dialogs/Dialogs";
 import {PostType} from "./components/Profile/MyPosts/MyPosts";
 import {PostsType} from "./components/Profile/MyPosts/MyPosts";
+import {OurStoreType, StateType, StoreType} from "./redax/state";
+import store from "./redax/redux-store";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 //import {addPost} from "./redax/state";
 
 export type AllType = {
@@ -32,14 +35,14 @@ export type AllType = {
 //}
 export type AppType = {
     state: AllType
-    addPost?: (postMessage: string) => void
-    updateNewPostText?: (newText: string) => void
+    addPost: (postMessage: string) => void
+    updateNewPostText: (newText: string) => void
     updateNewDialogText?: (newDialog: string) => void
     addNewDialog?: (dialogMessage: string) => void
     dispatch: (action: any) => void
 }
 
-const App = (props: AppType) => {
+const App = (props: OurStoreType) => {
 
     return (
         <BrowserRouter>
@@ -47,18 +50,20 @@ const App = (props: AppType) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render={() => <Dialogs dialogs={props.state.profilePage.dialogs}
-                                                                  messages={props.state.profilePage.messages}
-                                                                  newDialogText={props.state.profilePage.newDialogText}
-                                                                  dispatch={props.dispatch}
-                                                                  // updateNewDialogText={props.updateNewDialogText}
-                                                                  // addNewDialog={props.addNewDialog}
+                    <Route path='/dialogs' render={() => <DialogsContainer store={props.store}
+                                                                  // dialogs={props.state.profilePage.dialogs}
+                                                                  // messages={props.state.profilePage.messages}
+                                                                  // newDialogText={props.state.profilePage.newDialogText}
+                                                                  // dispatch={props.dispatch}
+                        // updateNewDialogText={props.updateNewDialogText}
+                        // addNewDialog={props.addNewDialog}
                     />}/>
-                    <Route path='/profile' render={() => <Profile posts={props.state.messagePage.posts}
-                                                                  newPostText={props.state.messagePage.newPostText}
-                                                                  dispatch={props.dispatch}
-                                                                  // addPost={props.addPost}
-                                                                  // updateNewPostText={props.updateNewPostText}
+                    <Route path='/profile' render={() => <Profile store={props.store}
+                        // posts={props.state.messagePage.posts}
+                        // newPostText={props.state.messagePage.newPostText}
+                        // dispatch={props.dispatch}
+                        // addPost={props.addPost}
+                        // updateNewPostText={props.updateNewPostText}
                     />}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>

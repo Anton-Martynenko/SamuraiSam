@@ -39,6 +39,17 @@ export type StateType = {
     profilePage: PPType
     messagePage: MPType
 }
+export type StoreType = {
+    _state?: StateType
+    _callSubscriber?: (state: AllType) => void
+    getState: () => StateType
+    subscribe: (observer: any) => void
+    dispatch: (action: any) => void
+}
+
+export type OurStoreType = {
+    store: StoreType
+}
 
 let store = {
     _state: {

@@ -4,6 +4,7 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {AllType} from "../../App";
 import {addNewDialogActionCreator, updateNewDialogTextActionCreator} from "../../redax/profile-reducer";
+import {PPType} from "../../redax/state";
 
 export type DialogItemType = {
     name: string
@@ -16,16 +17,17 @@ export type MessageType = {
 }
 
 type DialogsType = {
-    dialogs: Array<DialogItemType>
-    messages: Array<MessageType>
-    newDialogText: string
-    updateNewDialogText?: (newDialog: string) => void
-    addNewDialog?: (dialogMessage: string) => void
-    dispatch: (action: any) => void
+    profilePage: PPType
+    // dialogs: Array<DialogItemType>
+    // messages: Array<MessageType>
+    newDialogText?: string
+    updateNewDialogText: (newDialog: string) => void
+    addNewDialog: (dialogMessage: string) => void
+    // dispatch: (action: any) => void
 }
 
 const Dialogs = (props: DialogsType) => {
-
+    let state = props.profilePage;
     /*let dialogs = [
         {id: 1, name: 'Dimych'},
         {id: 2, name: 'Andrey'},
@@ -45,24 +47,24 @@ const Dialogs = (props: DialogsType) => {
         {id: 5, message: 'Yo'}
     ]*/
 
-    let dialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let messagesElements = props.messages.map(m => <Message message={m.message}/>);
+    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let messagesElements = state.messages.map(m => <Message message={m.message}/>);
     let newDialogElement = React.createRef<HTMLTextAreaElement>();
     const addNewDialog = () => {
         if (newDialogElement.current) {
             //let text = newDialogElement.current.value;
-            //let text = newDialogElement.current && newDialogElement.current.value;
+            let text = newDialogElement.current && newDialogElement.current.value;
             //alert(newDialogElement.current?.value);
 
-            // props.addNewDialog(newDialogElement.current.value);
-            props.dispatch(addNewDialogActionCreator());
+            props.addNewDialog(newDialogElement.current.value);
+            // props.dispatch(addNewDialogActionCreator());
         }
     }
     let onDialogChange = () => {
         if (newDialogElement.current) {
             let text = newDialogElement.current.value;
-            // props.updateNewDialogText(text);
-            props.dispatch(updateNewDialogTextActionCreator(text))
+            props.updateNewDialogText(text);
+            // props.dispatch(updateNewDialogTextActionCreator(text))
         }
     }
 
