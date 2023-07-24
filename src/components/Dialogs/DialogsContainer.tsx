@@ -6,7 +6,6 @@ import {AllType} from "../../App";
 import {addNewDialogActionCreator, updateNewDialogTextActionCreator} from "../../redax/profile-reducer";
 import {StateType, StoreType} from "../../redax/state";
 import Dialogs from "./Dialogs";
-import {StoreContext} from "../../StoreContext";
 import {connect} from "react-redux";
 
 export type DialogItemType = {
