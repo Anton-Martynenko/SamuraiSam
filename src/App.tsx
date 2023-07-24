@@ -50,7 +50,7 @@ const App = (props: OurStoreType) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render={() => <DialogsContainer store={props.store}
+                    <Route path='/dialogs' render={() => <DialogsContainer
                                                                   // dialogs={props.state.profilePage.dialogs}
                                                                   // messages={props.state.profilePage.messages}
                                                                   // newDialogText={props.state.profilePage.newDialogText}
@@ -58,7 +58,7 @@ const App = (props: OurStoreType) => {
                         // updateNewDialogText={props.updateNewDialogText}
                         // addNewDialog={props.addNewDialog}
                     />}/>
-                    <Route path='/profile' render={() => <Profile store={props.store}
+                    <Route path='/profile' render={() => <Profile
                         // posts={props.state.messagePage.posts}
                         // newPostText={props.state.messagePage.newPostText}
                         // dispatch={props.dispatch}

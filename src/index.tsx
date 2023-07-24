@@ -10,14 +10,14 @@ import {StoreContext} from "./StoreContext";
 export const rerenderEntireTree = (state: StateType) => {
     ReactDOM.render(
         <StoreContext.Provider value={store}>
-        <App store={store}
-             // dispatch={store.dispatch.bind(store)}
-             // state={state}
-            //  addPost={store.addPost.bind(store)}
-            // updateNewPostText={store.updateNewPostText.bind(store)}
-            // addNewDialog={store.addNewDialog.bind(store)}
-            // updateNewDialogText={store.updateNewDialogText.bind(store)}
-        />
+            <App
+                // dispatch={store.dispatch.bind(store)}
+                // state={state}
+                //  addPost={store.addPost.bind(store)}
+                // updateNewPostText={store.updateNewPostText.bind(store)}
+                // addNewDialog={store.addNewDialog.bind(store)}
+                // updateNewDialogText={store.updateNewDialogText.bind(store)}
+            />
         </StoreContext.Provider>,
         document.getElementById('root')
     );

@@ -23,7 +23,7 @@ export type ProfileType = {
     addPost?: (postMessage: string) => void
     newPostText?: string
     updateNewPostText?: (newText: string) => void
-    store: StoreType
+    store?: StoreType
 }
 
 const Profile = (props: ProfileType) => {
@@ -42,7 +42,8 @@ const Profile = (props: ProfileType) => {
             {/*         addPost={props.addPost}*/}
             {/*         updateNewPostText={props.updateNewPostText}*/}
             {/*/>*/}
-            <MyPostsContainer store={props.store}
+            <MyPostsContainer
+                // store={props.store}
                               // posts={props.posts}
                               // addPost={props.addPost}
                               // newPostText={props.newPostText}

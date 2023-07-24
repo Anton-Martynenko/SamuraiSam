@@ -48,7 +48,7 @@ export type StoreType = {
 }
 
 export type OurStoreType = {
-    store: StoreType
+    store?: StoreType
 }
 
 let store = {
