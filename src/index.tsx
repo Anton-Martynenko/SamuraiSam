@@ -6,10 +6,11 @@ import store from "./redax/redux-store";
 // import store from "./redax/state";
 import state, {OurStoreType, StateType, StoreType} from "./redax/state";
 import {StoreContext} from "./StoreContext";
+import { Provider } from 'react-redux';
 
 export const rerenderEntireTree = (state: StateType) => {
     ReactDOM.render(
-        <StoreContext.Provider value={store}>
+        <Provider store={store}>
             <App
                 // dispatch={store.dispatch.bind(store)}
                 // state={state}
@@ -18,7 +19,7 @@ export const rerenderEntireTree = (state: StateType) => {
                 // addNewDialog={store.addNewDialog.bind(store)}
                 // updateNewDialogText={store.updateNewDialogText.bind(store)}
             />
-        </StoreContext.Provider>,
+        </Provider>,
         document.getElementById('root')
     );
 }
