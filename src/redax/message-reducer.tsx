@@ -17,17 +17,27 @@ let initialState = {
 const messageReducer = (state: MPType = initialState, action: any) => {
     switch (action.type) {
         case ADD_POST:
-            let newPost: PostType = {
-                id: 5,
-                message: state.newPostText,
-                likesCount: 0
-            };
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return state;
+            let newPost = state.newPostText;
+            return {
+                ...state,
+                newPostText: '',
+                posts: [...state.posts, {id: 5, message: newPost, likesCount: 0}]
+            }
+            // let newPost: PostType = {
+            //     id: 5,
+            //     message: state.newPostText,
+            //     likesCount: 0
+            // };
+            // state.posts.push(newPost);
+            // state.newPostText = '';
+            // return state;
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            return {
+                ...state,
+                newPostText: action.newText
+            }
+            // state.newPostText = action.newText;
+            // return state;
         default:
             return state;
     }
