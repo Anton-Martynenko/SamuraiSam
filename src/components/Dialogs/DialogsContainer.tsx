@@ -58,7 +58,8 @@ type DialogsContainerType = {
 
 const mapStateToProps = (state: StateType) => {
     return {
-        profilePage: state.profilePage
+        profilePage: state.profilePage,
+        newDialogText: state.profilePage.newDialogText
     }
 }
 

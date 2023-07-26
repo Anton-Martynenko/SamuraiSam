@@ -8,7 +8,7 @@ import state, {OurStoreType, StateType, StoreType} from "./redax/state";
 import {StoreContext} from "./StoreContext";
 import { Provider } from 'react-redux';
 
-export const rerenderEntireTree = (state: StateType) => {
+// export const rerenderEntireTree = (state: StateType) => {
     ReactDOM.render(
         <Provider store={store}>
             <App
@@ -22,12 +22,12 @@ export const rerenderEntireTree = (state: StateType) => {
         </Provider>,
         document.getElementById('root')
     );
-}
-
-
-rerenderEntireTree(store.getState());
-
-store.subscribe(() => {
-    let state = store.getState()
-    rerenderEntireTree(state);
-});
+// }
+//
+//
+// rerenderEntireTree(store.getState());
+//
+// store.subscribe(() => {
+//     let state = store.getState()
+//     rerenderEntireTree(state);
+// });

@@ -29,17 +29,25 @@ let initialState = {
 
 const profileReducer = (state: PPType = initialState, action: any) => {
     switch (action.type) {
-        case ADD_NEW_DIALOG:
+        case ADD_NEW_DIALOG: {
             let newDialog: MessageType = {
                 id: 6,
                 message: state.newDialogText
             };
-            state.messages.push(newDialog);
-            state.newDialogText = '';
-            return state;
-        case UPDATE_NEW_DIALOG_TEXT:
-            state.newDialogText = action.newDialog;
-            return state;
+            let stateCopy = {...state};
+            stateCopy.messages = [...state.messages];
+            stateCopy.messages.push(newDialog);
+            stateCopy.newDialogText = '';
+            // state.messages.push(newDialog);
+            // state.newDialogText = '';
+            return stateCopy;
+        }
+        case UPDATE_NEW_DIALOG_TEXT: {
+            let stateCopy = {...state};
+            stateCopy.newDialogText = action.newDialog;
+            // state.newDialogText = action.newDialog;
+            return stateCopy;
+        }
         default:
             return state;
     }

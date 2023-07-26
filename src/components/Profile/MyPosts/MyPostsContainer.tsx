@@ -3,9 +3,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 import MyPosts from "./MyPosts";
 import {Store} from "redux";
 import {StateType, StoreType} from "../../../redax/state";
-import {StoreContext} from "../../../StoreContext";
 import {connect} from "react-redux";
-
 
 export type PostType = {
     id: number
@@ -64,7 +62,8 @@ export type ContainerPostsType = {
 
 const mapStateToProps = (state: StateType) => {
    return {
-       posts: state.messagePage.posts
+       posts: state.messagePage.posts,
+       newPostText: state.messagePage.newPostText
    }
 }
 
