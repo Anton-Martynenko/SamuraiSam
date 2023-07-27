@@ -15,6 +15,7 @@ import {PostsType} from "./components/Profile/MyPosts/MyPosts";
 import {OurStoreType, StateType, StoreType} from "./redax/state";
 import store from "./redax/redux-store";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import {Users} from "./components/Users/Users";
 //import {addPost} from "./redax/state";
 
 export type AllType = {
@@ -65,6 +66,7 @@ const App = (props: OurStoreType) => {
                         // addPost={props.addPost}
                         // updateNewPostText={props.updateNewPostText}
                     />}/>
+                    <Route path='/users' render={() => <Users/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
