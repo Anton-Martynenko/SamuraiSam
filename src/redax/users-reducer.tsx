@@ -10,6 +10,7 @@ export type LocationType = {
 
 export type UserType = {
     id: number
+    photoUrl: string
     followed: boolean
     fullName: string
     status: string
@@ -28,27 +29,30 @@ const SET_USERS = 'SET_USERS';
 
 let initialState = {
     users: [
-        // {
-        //     id: 1,
-        //     followed: false,
-        //     fullName: 'Dimych',
-        //     status: 'I am a boss',
-        //     location: {city: 'Minsk', country: 'Belarus'}
-        // },
-        // {
-        //     id: 2,
-        //     followed: true,
-        //     fullName: 'Igor',
-        //     status: 'I am a boss too',
-        //     location: {city: 'Moscow', country: 'Russia'}
-        // },
-        // {
-        //     id: 3,
-        //     followed: false,
-        //     fullName: 'Katya',
-        //     status: 'I am a boss too',
-        //     location: {city: 'Omsk', country: 'Russia'}
-        // }
+        {
+            id: 1,
+            photoUrl: 'https://i.pinimg.com/736x/01/ce/b6/01ceb608fc9d453a782b9fd1cc3e8302.jpg',
+            followed: false,
+            fullName: 'Dimych',
+            status: 'I am a boss',
+            location: {city: 'Minsk', country: 'Belarus'}
+        },
+        {
+            id: 2,
+            photoUrl: 'https://i.pinimg.com/736x/01/ce/b6/01ceb608fc9d453a782b9fd1cc3e8302.jpg',
+            followed: true,
+            fullName: 'Igor',
+            status: 'I am a boss too',
+            location: {city: 'Moscow', country: 'Russia'}
+        },
+        {
+            id: 3,
+            photoUrl: 'https://i.pinimg.com/736x/01/ce/b6/01ceb608fc9d453a782b9fd1cc3e8302.jpg',
+            followed: false,
+            fullName: 'Katya',
+            status: 'I am a boss too',
+            location: {city: 'Omsk', country: 'Russia'}
+        }
     ]
 };
 
