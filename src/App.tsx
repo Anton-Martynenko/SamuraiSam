@@ -45,7 +45,7 @@ export type AppType = {
     dispatch: (action: any) => void
 }
 
-const App = (props: OurStoreType) => {
+const App = () => {
 
     return (
         <BrowserRouter>
@@ -68,7 +68,7 @@ const App = (props: OurStoreType) => {
                         // addPost={props.addPost}
                         // updateNewPostText={props.updateNewPostText}
                     />}/>
-                    <Route path='/users' render={() => <UsersContainer />}/>
+                    <Route path='/users' render={() => <UsersContainer/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>

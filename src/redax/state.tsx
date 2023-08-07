@@ -3,7 +3,8 @@ import {MessageType} from "../components/Dialogs/Dialogs";
 import {AllType} from "../App";
 import messageReducer from "./message-reducer";
 import profileReducer from "./profile-reducer";
-import {UsersType} from "./users-reducer";
+import {UsersType, UserType} from "./users-reducer";
+
 
 // let rerenderEntireTree = (state: AllType) => {
 //     console.log("State changed");
@@ -35,6 +36,11 @@ export type PPType = {
 export type MPType = {
     posts: Array<PType>
     newPostText: string
+}
+export type UPType = {
+    users: Array<UserType>
+    // userId: number
+    // newUsers: Array<UserType>
 }
 export type StateType = {
     profilePage: PPType

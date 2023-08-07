@@ -3,15 +3,29 @@ import {Users} from "./Users";
 import {StateType} from "../../redax/state";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redax/message-reducer";
 import {connect} from "react-redux";
-import {followAC, setUsersAC, unfollowAC, UsersType} from "../../redax/users-reducer";
+import {followAC, setUsersAC, unfollowAC, UsersType, UserType} from "../../redax/users-reducer";
+import {Dispatch} from "redux";
+import {AppStateType} from "../../redax/redux-store";
 
-const mapStateToProps = (state: StateType) => {
+export type MapStateToPropsType = {
+    usersPage: UsersType
+}
+
+export type MapDispatchToPropsType = {
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+    setUsers: (users: Array<UserType>) => void
+}
+
+export type UsersPropsType = MapStateToPropsType & MapDispatchToPropsType
+
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        users: state.usersPage.users
+        usersPage: state.users
     }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     return {
         follow: (userId: number) => {
             dispatch(followAC(userId));
@@ -19,7 +33,7 @@ const mapDispatchToProps = (dispatch: any) => {
         unfollow: (userId: number) => {
             dispatch(unfollowAC(userId))
         },
-        setUsers: (users: UsersType) => {
+        setUsers: (users: Array<UserType>) => {
             dispatch(setUsersAC(users))
         }
     }
