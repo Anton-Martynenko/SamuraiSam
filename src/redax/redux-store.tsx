@@ -6,7 +6,7 @@ import usersReducer from "./users-reducer";
 let reducers = combineReducers({
     profilePage: profileReducer,
     messagePage: messageReducer,
-    users: usersReducer
+    usersPage: usersReducer
 });
 
 export type AppStateType = ReturnType<typeof reducers>
